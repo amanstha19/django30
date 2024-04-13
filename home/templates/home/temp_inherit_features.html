@@ -1,0 +1,28 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+<h1> This is features page </h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+         <th scope="col">description</th>
+        
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in name %}
+    <tr>
+      <th scope="row">1</th>
+      <td>i.name</td>
+      <td>i.description</td>
+    
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
+

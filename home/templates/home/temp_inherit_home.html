@@ -17,6 +17,14 @@ Address:{{ address }}<br>
     </tr>
   </thead>
   <tbody>
+  {% if name == "jon" %}
+  <h2>{{name}}</h2>
+  {% else %}
+  <h2>No name available</h2>
+  {% endif %}
+  
+  
+  
   {% for item in items %}
     <tr>
       <th scope="row">{{ forloop.counter }}</th>

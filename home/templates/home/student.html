@@ -1,0 +1,40 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name </th>
+      <th scope="col">age</th>
+      <th scope="col">email </th>
+        <th scope="col">address </th>
+         <th scope="col">phone </th>
+         <th scope="col">bio </th>
+         <th scope="col">roll_no </th>
+    </tr>
+  </thead>
+  <tbody>
+
+  
+{% for student in students %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{student.name}}</td>
+      <td>{{student.age}}</td>
+      <td>{{student.email}}</td>
+        <td>{{student.address}}</td>
+         <td>{{student.studentprofile.phone}}</td>
+         <td>{{student.studentprofile.bio}}</td>
+         <td>{{student.studentprofile.roll_no}}</td>
+        
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}

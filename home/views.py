@@ -45,3 +45,9 @@ def temp_inherit_pricing(request):
     students = Student.objects.all()
     return render(request, template_name='home/temp_inherit_pricing.html',
                   context={"students": students})
+
+
+
+def student(request):
+    students = Student.objects.all()
+    return render(request, template_name="home/student.html", context={"students": students})

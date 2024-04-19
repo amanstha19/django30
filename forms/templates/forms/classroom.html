@@ -1,0 +1,41 @@
+{% extends 'home/base.html' %}
+
+
+
+
+{% block content %}
+<h1>Classroom </h1>
+<a href="{% url 'add_student' %}" class="btn btn-primary" style ="float: right"> Add Student</a>
+
+<br>
+
+<form method="post" action="{% url 'add_classroom' %}">
+    {% csrf_token %}
+    Name:
+    <input name="classname">
+    
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name </th>
+  
+    </tr>
+  </thead>
+  <tbody>
+
+  
+{% for classroom in classrooms %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{classroom.name}}</td>
+     
+        
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

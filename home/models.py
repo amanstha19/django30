@@ -18,7 +18,7 @@ class Student(models.Model):
           # class name later becomes table name in database
 
     name = models.CharField(max_length=30)
-    age = models.IntegerField()
+    age = models.IntegerField(null=True, blank=True)
     address = models.CharField(max_length=50)
     email = models.EmailField(max_length=20)
     classroom = models.ForeignKey(ClassRoom, on_delete=models.CASCADE, related_name="classroom_student",

@@ -16,6 +16,7 @@
          <th scope="col">bio </th>
          <th scope="col">roll_no </th>
          <th scope="col">Classroom </th>
+         <th scope="col">Action </th>
       
     </tr>
   </thead>
@@ -33,6 +34,15 @@
          <td>{{student.studentprofile.bio}}</td>
          <td>{{student.studentprofile.roll_no}}</td>
          <td>{{student.classroom.name}}</td>
+         <td>
+             <a class="btn btn-primary "href="">Detail</a>
+             <a class="btn btn-success "href="">Update</a>
+             <a class="btn btn-danger "href="{% url 'delete_student' student.id %}">Delete</a>
+             
+         </td>
+        
+        
+        
         
     </tr>
    {% endfor %}

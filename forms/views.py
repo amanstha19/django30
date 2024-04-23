@@ -47,3 +47,7 @@ def delete_student(request, id ):
         student.delete()
         return redirect("student")
     return render(request, template_name="forms/delete_student.html", context={"student": student})
+
+
+def detail_student():
+    return None

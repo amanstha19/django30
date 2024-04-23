@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
 ]
 
-PROJECT_APPS = ["home", "forms"]
+PROJECT_APPS = ["home", "forms", "api"]
 THIRD_PARTY_APPS = []
 INSTALLED_APPS += PROJECT_APPS + THIRD_PARTY_APPS
 

@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from home.models import Student
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import StudentSerializer
+from .serializers import StudentSerializer, StudentModelSerializer
 
 
 
@@ -40,10 +40,54 @@ class StudentGetAPIView(APIView):
                 "detail": "not found"
             })
 
-
-
         serializer = StudentSerializer(student)
         return Response(serializer.data)
+
+
+class StudentListAPIView(APIView):
+    def get(self, *args, **kwargs):
+        students = Student.objects.all()
+        # serializer = StudentSerializer(students, many=True)  #serialization
+        serializer = StudentModelSerializer(students, many=True)  #serialization
+        return Response(serializer.data)
+
+    # def post(self, request, *args, **kwargs):
+    #     print(self.request.data)
+    #
+    #     name = request.data.get("name")
+    #     age = request.data.get("age")
+    #     email = request.data.get("email")
+    #     address = request.data.get("address")
+    #     Student.objects.create(name=name, age=age, email=email, address=address)
+    #
+    #     return Response({
+    #         "message": "student created successfully "
+    #     })
+
+    def post(self,  *args, **kwargs):
+        serializer = StudentModelSerializer(self.request.data)  #deserialization
+        if serializer.is_valid():
+            name = serializer.validated_data['name']
+            age = serializer.validated_data['age']
+            email = serializer.validated_data['email']
+            address = serializer.validated_data['address']
+
+
+
+            Student.objects.create(name=name, age=age, email=email, address=address)
+            return Response({
+                "message": "student created successfully "
+            })
+
+        return Response({
+            "message": "Invalid request "
+        })
+
+
+
+
+
+
 
 
 

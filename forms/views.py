@@ -51,3 +51,6 @@ def delete_student(request, id ):
 
 def detail_student():
     return None
+
+
+

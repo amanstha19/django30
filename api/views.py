@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from home.models import Student
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.generics import ListAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView,UpdateAPIView,DestroyAPIView
 
 from .serializers import StudentSerializer, StudentModelSerializer
 
@@ -102,11 +102,12 @@ class StudentCreateView(CreateAPIView):
 
 
 
+class StudentUpdateView(UpdateAPIView):
+    serializer_class = StudentModelSerializer
+    queryset = Student.objects.all()
 
 
-
-
-
-
-
+class StudentDeleteView(DestroyAPIView):
+    serializer_class = StudentModelSerializer
+    queryset = Student.objects.all()
 

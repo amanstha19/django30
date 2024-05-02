@@ -4,6 +4,7 @@ from .views import (hello_world, student_info, StudentGetAPIView,
                     ClassRoomViewSet, StudentViewSet)
 
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token
 
 # Initialize the router
 router = DefaultRouter()
@@ -17,6 +18,7 @@ urlpatterns = [
     path("student-info/", student_info),
     path("student-apiview/", StudentListAPIView.as_view()),
     path("student-apiview/<int:id>/", StudentGetAPIView.as_view()),
+    path("login/", obtain_auth_token)
 ]
 
 # Include the router's URLs

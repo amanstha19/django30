@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import (hello_world, student_info, StudentGetAPIView,
-                    StudentListAPIView, StudentListView, StudentCreateView, StudentUpdateView,StudentDeleteView, ClassRoomViewSet)
+                    StudentListAPIView, StudentListView, StudentCreateView, StudentUpdateView,StudentDeleteView,
+                    ClassRoomViewSet, StudentViewSet)
 
 from rest_framework.routers import DefaultRouter
 
@@ -9,6 +10,7 @@ router = DefaultRouter()
 
 # Register the viewset with the router
 router.register('classroom', ClassRoomViewSet)
+router.register('student', StudentViewSet)
 
 urlpatterns = [
     path("hello-world/", hello_world),
